@@ -69,7 +69,7 @@ def enhance_translation_with_llm(translated_text, source_language):
         {"role": "system", "content": "You are a professional translator."},
         {
             "role": "user",
-            "content": f"Please refine this translation from {source_language} to English. The translation needs better grammar, punctuation, and a natural language flow.\n\n"
+            "content": f"Please refine this translation from {source_language} to English. The translation needs better grammar, punctuation, and a natural language flow and it should keep the emotion of the message intact.\n\n"
                        f"Original Translation: {translated_text}\n\n"
                        f"Refined Translation:",
         }
