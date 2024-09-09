@@ -1,4 +1,4 @@
-# Voice Bridge Application
+# Project Zephyr -- Voice Bridge Application
 
 An innovative voice translation pipeline that leverages Google Cloud's powerful APIs along with LLM voice synthesis to break down language barriers in real-time. This project combines the capabilities of Google Cloud Speech-to-Text, Translation, Text-to-Speech APIs, plus OpenAI API to create a seamless voice-to-voice translation experience.
 
