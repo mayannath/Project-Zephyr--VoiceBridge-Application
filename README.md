@@ -6,6 +6,7 @@ An innovative voice translation pipeline that leverages Google Cloud's powerful 
 
 - **vbridge-w-GoogleAPIs.py**: This file utilizes the Google APIs only, namely Google Cloud Speech-to-Text, Translate, and Text-to-Speech
 - **vbridge-w-GoogleAPIs-and-OpenAIAPIs.py**: This file utilizes the Google APIs + OpenAI API to synthesize and clean up the speech rendition for a cleaner, punctuated speech experience.
+- **vbridge-withGoogleAPIs-and-OpenAIAPIs-and-SentimentAnalysis-colorCoded-with-SSML.py**: This file adds emotional context to generated speech through sentiment analysis by modifying the pitch and tone of the final speech. Only works for Supported languages.
 
 ## Key Features
 
@@ -15,6 +16,7 @@ An innovative voice translation pipeline that leverages Google Cloud's powerful 
 - **Low-Latency Processing**: Designed for low-latency performance, enabling rapid voice translation.
 - **Multi-language Support**: Capable of handling a wide range of languages and dialects.
 - **LLM Speech Synthesis Support (based on the file)**: To make speech more human-like and natural sounding.
+- **Sentiment Analysis (based on the file)**: To add emotional context 
 
 ## Technical Overview
 
@@ -36,6 +38,6 @@ The project is structured to allow easy integration with various front-end appli
 
 ## Limitations
 
-- Up to 1 minute Audio. Can be extended through code modification.
+- Up to 1 minute Audio. Can be extended through code modification and utilizing a Google Cloud storage account to host the Audio File.
 - Translation is not expected to be word-for-word. The emphasis with LLM support is to provide full context of the input language to get a concise response. Its focused more on the content and message than word-for-word translation. This is by design.
 
