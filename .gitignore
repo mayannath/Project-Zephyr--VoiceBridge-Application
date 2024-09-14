@@ -12,6 +12,9 @@ myenv/
 # Log files
 *.log
 
+# MP3 Files generated through translation
+*.mp3
+
 # macOS specific files
 .DS_Store
 
