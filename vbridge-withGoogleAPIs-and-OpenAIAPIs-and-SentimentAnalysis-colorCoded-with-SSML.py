@@ -53,13 +53,13 @@ def analyze_sentiment(text, language_code="en"):
     sentiment_magnitude = round(sentiment.magnitude, 1)
 
     if sentiment_score > 0.25:
-        sentiment_result = f"<span style='color:green'>Positive</span>"
+        sentiment_result = f"<span style='color:green; font-weight: bold;'>Positive</span>"
     elif sentiment_score < -0.25:
-        sentiment_result = f"<span style='color:red'>Negative</span>"
+        sentiment_result = f"<span style='color:red; font-weight: bold;'>Negative</span>"
     else:
-        sentiment_result = f"<span style='color:yellow'>Neutral</span>"
+        sentiment_result = f"<span style='color:yellow; font-weight: bold;'>Neutral</span>"
 
-    return f"Sentiment: {sentiment_result} (Score: {sentiment_score}, Magnitude: {sentiment_magnitude})"
+    return f"<b>Sentiment:</b> {sentiment_result} (Score: {sentiment_score}, Magnitude: {sentiment_magnitude})"
 
 
 # Function to translate text using Google Cloud Translate API
@@ -113,9 +113,9 @@ def enhance_translation_with_llm(translated_text, source_language):
 
     # Use the ChatCompletion API to access models like gpt-3.5-turbo or gpt-4
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # You can also use gpt-4 if available
+        model="gpt-4o",  # You can also use gpt-3.5-turbo if available
         messages=messages,
-        temperature=0.5,
+        temperature=0.1,
         max_tokens=4096
     )
 
@@ -162,7 +162,7 @@ with gr.Blocks() as demo:
                 choices=[
                     ("Arabic", "ar"),
                     ("Armenian *", "hy"),
-                    ("Chinese (Simplified)", "zh-CN"),
+                    ("Chinese", "zh"),
                     ("Filipino *", "tl"),
                     ("Hindi *", "hi"),
                     ("Italian", "it"),
@@ -188,18 +188,17 @@ with gr.Blocks() as demo:
         submit = gr.Button("Translate", variant="primary", scale=1)
         btn = gr.Button("Clear", scale=1)
 
-    gr.Markdown("### Translation Result")
+    #gr.Markdown("### Translation Result")
 
     with gr.Row():
         with gr.Column(scale=1):
             en_text = gr.Markdown(label="Translated English Text")
+            gr.Markdown("<br>")
+        # New Sentiment Heading with color coding in HTML
+            sentiment_output = gr.HTML()
         
         with gr.Column(scale=1):
             en_output = gr.Audio(label="Translated English Audio", interactive=False)
-
-    # New Sentiment Heading with color coding in HTML
-    gr.Markdown("### Sentiment Analysis Result")
-    sentiment_output = gr.HTML()
 
     submit.click(
         fn=voice_to_voice, 
