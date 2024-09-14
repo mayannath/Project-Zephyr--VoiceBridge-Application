@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+myenv/
+.env/
+.venv/
+
+# Log files
+*.log
+
+# macOS specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
+
+# Ignore IDE-specific folders
+.vscode/
+.idea/
+
+# Other system files
+*.swp
+
+# Python package files
+*.egg-info/
+*.eggs/
+
+# GitHub Codespaces or Docker development container
+.devcontainer/
+
+# Ignore Google Cloud credentials or API keys (make sure these are excluded)
+*.json

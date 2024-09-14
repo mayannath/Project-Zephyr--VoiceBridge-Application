@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import uuid
 import gradio as gr
 from google.cloud import translate_v2 as translate
@@ -8,10 +9,15 @@ from google.cloud.language_v1 import LanguageServiceClient  # For Natural Langua
 from pathlib import Path
 import openai
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Get the credentials path from environment variable
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+
 # Initialize Google Translate client
 def init_google_translate_client():
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/mayan/VoiceBridgeApp/myenv/psychic-karma-434602-f2-fd6bcd4cd937.json"  # Set your credentials path
-    return translate.Client()
+    return translate.Client()  # Google Cloud SDK will automatically use the credentials from the environment with this approach
 
 translate_client = init_google_translate_client()
 
