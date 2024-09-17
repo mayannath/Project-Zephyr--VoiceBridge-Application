@@ -1,4 +1,5 @@
 import os
+import io
 from dotenv import load_dotenv
 import uuid
 import gradio as gr
@@ -25,8 +26,14 @@ translate_client = init_google_translate_client()
 def transcribe_audio_google(audio_file, language_code):
     client = speech.SpeechClient()
 
-    with open(audio_file, 'rb') as f:
-        audio_content = f.read()
+    # Check if the audio_file is a file path or bytes
+    if isinstance(audio_file, str):  # If audio_file is a file path
+        with open(audio_file, 'rb') as f:
+            audio_content = f.read()
+    elif isinstance(audio_file, io.BytesIO):  # If audio_file is an in-memory file-like object
+        audio_content = audio_file.read()
+    else:
+        raise ValueError("Invalid audio file input")
 
     audio = speech.RecognitionAudio(content=audio_content)
     config = speech.RecognitionConfig(
