@@ -40,3 +40,13 @@ The project is structured to allow easy integration with various front-end appli
 - Up to 1 minute Audio. Can be extended through code modification and utilizing a Google Cloud storage account to host the Audio File.
 - Translation is not expected to be word-for-word. The emphasis with LLM support is to provide full context of the input language to get a concise response. Its focused more on the content and message than word-for-word translation. This is by design.
 
+## Future Improvements
+
+- build end-to-end encryption.
+- Expand sentiment analysis to support more languages.
+- Add detailed error messages and better input validation.
+- Optimize for faster performance and lower API costs.
+- Support multi-language translations and configurable voice options.
+- Improve user interface with better feedback and accessibility.
+- Re-factor code with classes/modules for better maintainability.
+
