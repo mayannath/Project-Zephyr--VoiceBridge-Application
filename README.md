@@ -4,8 +4,6 @@ An innovative voice translation pipeline that leverages Google Cloud's powerful 
 
 ## Description of Files
 
-- **vbridge-w-GoogleAPIs.py**: This file utilizes the Google APIs only, namely Google Cloud Speech-to-Text, Translate, Natural Language, and Text-to-Speech
-- **vbridge-w-GoogleAPIs-and-OpenAIAPIs.py**: This file utilizes the Google APIs + OpenAI API to synthesize and clean up the speech rendition for a cleaner, punctuated speech experience.
 - **vbridge-withGoogleAPIs-and-OpenAIAPIs-and-SentimentAnalysis-colorCoded-with-SSML.py**: This file adds emotional context to generated speech through sentiment analysis by modifying the pitch and tone of the final speech. Only works for Supported languages.
 - **requirements.txt**: includes all packages needed to run this app.
 
